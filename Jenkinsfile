@@ -12,7 +12,7 @@ pipeline {
         stage('Import Image to K3s') {
             steps {
                 sh 'docker save devops-final:${BUILD_NUMBER} -o image.tar'
-                sh 'sudo k3s ctr images import image.tar'
+                sh 'k3s ctr images import image.tar'
             }
         }
 
