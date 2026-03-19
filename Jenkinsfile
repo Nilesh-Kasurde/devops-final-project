@@ -2,17 +2,12 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "nileshdockerhub123/devops-app"
+        DOCKER_IMAGE = "nileshdockerhub123/devops-final"
         TAG = "${BUILD_NUMBER}"
     }
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'git@github.com:Nilesh-Kasurde/devops-final-project.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
