@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "nileshdockerhub123/devops-final"
+        DOCKER_IMAGE = "nileshdockerhub123/devops-app"
         TAG = "${BUILD_NUMBER}"
     }
 
