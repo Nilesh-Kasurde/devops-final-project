@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
       - name: devops-container
-        image: nileshdockerhub123/devops-final:1
-        imagePullPolicy: IfNotPresent
+        image: nileshdockerhub123/devops-app:latest
         ports:
         - containerPort: 80

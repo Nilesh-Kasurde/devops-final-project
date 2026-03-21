@@ -8,7 +8,6 @@ pipeline {
 
     stages {
 
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE:$TAG .'
@@ -36,8 +35,12 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
+                sh '''
+                kubectl set image deployment/devops-app \
+                devops-container=$DOCKER_IMAGE:$TAG
+               
+                kubectl rollout status deployment/devops-app
+                '''
             }
         }
 
